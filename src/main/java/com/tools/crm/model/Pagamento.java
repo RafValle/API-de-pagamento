@@ -1,5 +1,6 @@
 package com.tools.crm.model;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,13 +11,45 @@ import javax.persistence.Id;
 
 @Entity
 public class Pagamento {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(nullable = false)
-	private String nome;
+	private String cartao;
+	private Double valor;
+	private LocalDateTime dateTime;
+	private String estabelecimento;
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public String getCartao() {
+		return cartao;
+	}
+
+	public void setCartao(String cartao) {
+		this.cartao = cartao;
+	}
+
+	public LocalDateTime getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(LocalDateTime dateTime) {
+		this.dateTime = dateTime;
+	}
+
+	public String getEstabelecimento() {
+		return estabelecimento;
+	}
+
+	public void setEstabelecimento(String estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
 
 	public Long getId() {
 		return id;
@@ -26,29 +59,5 @@ public class Pagamento {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pagamento other = (Pagamento) obj;
-		return Objects.equals(id, other.id);
-	}
 
 }
