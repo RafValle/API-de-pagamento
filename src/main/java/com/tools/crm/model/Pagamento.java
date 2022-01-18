@@ -1,30 +1,57 @@
 package com.tools.crm.model;
 
-import java.time.LocalDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.time.LocalDate;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "pagamento")
+@JsonInclude(Include.NON_NULL)
 public class Pagamento {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private Long idPagamento;
 	private String cartao;
 	private Double valor;
-	private LocalDateTime dateTime;
+	private LocalDate dateTime;
 	private String estabelecimento;
+	private Integer nsu;
+	private Integer condigoAutorizacao;
+	@Enumerated(EnumType.STRING)
+	private Status status;
+	@Enumerated(EnumType.STRING)
+	private FormaPagamento tipo;
+	private Long parcelas;
 
-	public Double getValor() {
-		return valor;
+	public Pagamento(Long idPagamento, String cartao, Double valor, LocalDate dateTime,
+					 String estabelecimento, Integer nsu, Integer condigoAutorizacao, Status status,FormaPagamento tipo, Long parcelas){
+		super();
+		this.idPagamento = idPagamento;
+		this.cartao = cartao;
+		this.valor = valor;
+		this.dateTime = dateTime;
+		this.estabelecimento = estabelecimento;
+		this.nsu = nsu;
+		this.condigoAutorizacao = condigoAutorizacao;
+		this.status = status;
+		this.tipo = tipo;
+		this.parcelas = parcelas;
 	}
 
-	public void setValor(Double valor) {
-		this.valor = valor;
+	public Pagamento() {
+
+	}
+
+	public Long getIdPagamento() {
+		return idPagamento;
+	}
+
+	public void setIdPagamento(Long idPagamento) {
+		this.idPagamento = idPagamento;
 	}
 
 	public String getCartao() {
@@ -35,12 +62,12 @@ public class Pagamento {
 		this.cartao = cartao;
 	}
 
-	public LocalDateTime getDateTime() {
-		return dateTime;
+	public Double getValor() {
+		return valor;
 	}
 
-	public void setDateTime(LocalDateTime dateTime) {
-		this.dateTime = dateTime;
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 
 	public String getEstabelecimento() {
@@ -51,6 +78,54 @@ public class Pagamento {
 		this.estabelecimento = estabelecimento;
 	}
 
+	public Integer getNsu() {
+		return nsu;
+	}
+
+	public void setNsu(Integer nsu) {
+		this.nsu = nsu;
+	}
+
+	public Integer getCondigoAutorizacao() {
+		return condigoAutorizacao;
+	}
+
+	public void setCondigoAutorizacao(Integer condigoAutorizacao) {
+		this.condigoAutorizacao = condigoAutorizacao;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public FormaPagamento getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(FormaPagamento tipo) {
+		this.tipo = tipo;
+	}
+
+	public Long getParcelas() {
+		return parcelas;
+	}
+
+	public void setParcelas(Long parcelas) {
+		this.parcelas = parcelas;
+	}
+
+	public LocalDate getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(LocalDate dateTime) {
+		this.dateTime = dateTime;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -58,6 +133,4 @@ public class Pagamento {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 }

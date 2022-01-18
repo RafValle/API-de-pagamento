@@ -1,12 +1,18 @@
 package com.tools.crm.dto;
 
-import com.sun.istack.NotNull;
+
+import javax.validation.constraints.NotNull;
 
 public class RequisicaoPagamentoDTO {
+
     @NotNull
     private TransacaoDTO transacao;
 
-    public TransacaoDTO getPagamento() {
+    public TransacaoDTO getTransacao() {
         return transacao;
+    }
+
+    public void setTransacao(TransacaoDTO transacao) {
+        this.transacao = transacao;
     }
 }

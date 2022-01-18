@@ -20,12 +20,13 @@ public class PagamentoServiceImpl implements PagamentoServico {
 
     @Override
     public RespostaPagamentoDTO realizarPagamento(RequisicaoPagamentoDTO requisicaoPagamentoDTO) {
-        Pagamento pag = conversionService.convert(requisicaoPagamentoDTO.getPagamento(), Pagamento.class);
+        Pagamento pag = conversionService.convert(requisicaoPagamentoDTO.getTransacao(), Pagamento.class);
 
         Pagamento pagamento = pagamentoRepositorio.save(pag);
         RespostaPagamentoDTO respostaPagamentoDTO = new RespostaPagamentoDTO();
-        respostaPagamentoDTO.setIdPagamento(pagamento.getId());
+        respostaPagamentoDTO.setIdPagamento(pagamento.getIdPagamento());
         respostaPagamentoDTO.setCartao(pagamento.getCartao());
+
 
         return respostaPagamentoDTO;
     }
