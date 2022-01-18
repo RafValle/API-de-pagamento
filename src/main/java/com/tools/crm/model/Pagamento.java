@@ -1,14 +1,17 @@
 package com.tools.crm.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import java.time.LocalDate;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "pagamento")
-@JsonInclude(Include.NON_NULL)
 public class Pagamento {
 
 	@Id
@@ -130,7 +133,10 @@ public class Pagamento {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	@Override
+	public String toString() {
+		return "Pagamento [id=" + id + ",idPagamento=" + idPagamento + ", cartao=" + cartao + ", valor=" + valor
+				+ ", estabelecimento=" + estabelecimento + ", nsu=" + nsu + ", condigoAutorizacao=" + condigoAutorizacao + ", status=" + status
+				+ ", tipo=" + tipo + ", parcelas=" + parcelas + "]";
 	}
 }

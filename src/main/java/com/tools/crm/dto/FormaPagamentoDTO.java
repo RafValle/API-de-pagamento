@@ -3,11 +3,12 @@ package com.tools.crm.dto;
 import com.tools.crm.model.FormaPagamento;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 public class FormaPagamentoDTO {
 
+    @NotNull
     private FormaPagamento tipo;
+    @NotNull
     private Long parcelas;
 
     public FormaPagamentoDTO(FormaPagamento tipo, Long parcelas) {

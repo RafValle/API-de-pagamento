@@ -60,5 +60,5 @@ public class TransacaoDTO {
 
     @Override
     public String toString() {
-        return "transacao [cartao=" + cartao + ", id=" + idPagamento + ", descricao=" + descricao +  ", formaPagamento= " + formaPagamento +"]";}
+        return "transacaoDTO [cartao=" + cartao + ", id=" + idPagamento + ", descricao=" + descricao +  ", formaPagamento= " + formaPagamento +"]";}
 }

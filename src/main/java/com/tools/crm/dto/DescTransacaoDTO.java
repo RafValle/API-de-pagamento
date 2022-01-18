@@ -1,11 +1,15 @@
 package com.tools.crm.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class DescTransacaoDTO {
+    @NotNull
     private Double valor;
+    @NotNull
     private LocalDate dataHora;
+    @NotEmpty
     private String estabelecimento;
 
     public DescTransacaoDTO(Double valor, LocalDate dataHora, String estabelecimento) {
