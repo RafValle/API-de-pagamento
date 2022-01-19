@@ -12,15 +12,15 @@ import javax.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransacaoDTO {
-
+public class TransacaoRespostaDTO {
+    @NotNull
     private Long idPagamento;
     @NotEmpty
     private String cartao;
     @NotNull
-    private DescTransacaoDTO descricao;
+    private DescTransacaoRepostaDTO descricao;
     @NotNull
-    private FormaPagamentoDTO formaPagamento;
+    private  FormaPagamentoDTO formaPagamento;
 
     public FormaPagamentoDTO getFormaPagamento() {
         return formaPagamento;

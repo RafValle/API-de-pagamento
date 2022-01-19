@@ -1,8 +1,10 @@
 package com.tools.crm.service.impl;
 
+import com.tools.crm.convert.RequisicaoConverter;
 import com.tools.crm.dto.RequisicaoPagamentoDTO;
 import com.tools.crm.dto.RespostaPagamentoDTO;
 import com.tools.crm.model.Pagamento;
+import com.tools.crm.model.Status;
 import com.tools.crm.repository.PagamentoRepository;
 import com.tools.crm.service.PagamentoServico;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +18,19 @@ public class PagamentoServiceImpl implements PagamentoServico {
     private PagamentoRepository pagamentoRepositorio;
 
     @Autowired
-    private ConversionService conversionService;
+    private RequisicaoConverter requisicaoConverter;
 
     @Override
     public RespostaPagamentoDTO realizarPagamento(RequisicaoPagamentoDTO requisicaoPagamentoDTO) {
-        Pagamento pag = conversionService.convert(requisicaoPagamentoDTO.getTransacao(), Pagamento.class);
+        Pagamento pag = requisicaoConverter.convertToRequisicaoPagamento(requisicaoPagamentoDTO);
 
+        pag.setNsu(1234);
+        pag.setStatus(Status.AUTORIZADO);
+        pag.setCondigoAutorizacao(1111111);
         Pagamento pagamento = pagamentoRepositorio.save(pag);
         RespostaPagamentoDTO respostaPagamentoDTO = new RespostaPagamentoDTO();
-        respostaPagamentoDTO.setIdPagamento(pagamento.getIdPagamento());
-        respostaPagamentoDTO.setCartao(pagamento.getCartao());
 
+        respostaPagamentoDTO = requisicaoConverter.convertToRequisicaoPagamentoResposta(pagamento);
 
         return respostaPagamentoDTO;
     }

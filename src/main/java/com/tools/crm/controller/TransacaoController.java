@@ -1,7 +1,5 @@
 package com.tools.crm.controller;
 
-import java.util.List;
-
 import com.tools.crm.dto.RequisicaoPagamentoDTO;
 import com.tools.crm.dto.RespostaPagamentoDTO;
 import com.tools.crm.service.PagamentoServico;
@@ -12,30 +10,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.tools.crm.model.Pagamento;
 import com.tools.crm.repository.PagamentoRepository;
 
 import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("/pagamentos")
-@Api(value = "API REST pagamento")
+@Api(tags = "Transação")
 @CrossOrigin(origins = "*")
-public class PagamentoController {
+public class TransacaoController {
 
 	@Autowired
 	private PagamentoServico pagamentoServico;
-	
+
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
 
-	@GetMapping
-	public List<Pagamento> listar() {
-		return pagamentoRepository.findAll();	
-	}
-
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping("/pagamento")
 	@ApiOperation(value="Inserir um pagamento")
 	public ResponseEntity<RespostaPagamentoDTO> realizarPagamento(
 			@Valid @RequestBody RequisicaoPagamentoDTO requisicaoPagamentoDTO) {

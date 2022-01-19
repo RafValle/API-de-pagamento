@@ -1,27 +1,26 @@
 package com.tools.crm.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotNull;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RespostaPagamentoDTO {
-    private Long idPagamento;
-    private String cartao;
 
-    public Long getIdPagamento() {
-        return idPagamento;
+    @NotNull
+    private TransacaoRespostaDTO transacaoRespostaDTO;
+
+    public @NotNull TransacaoRespostaDTO getTransacaoRespostaDTO() {
+        return transacaoRespostaDTO;
     }
 
-    public void setIdPagamento(Long idPagamento) {
-        this.idPagamento = idPagamento;
-    }
-
-    public String getCartao() {
-        return cartao;
-    }
-
-    public void setCartao(String cartao) {
-        this.cartao = cartao;
-    }
-
-    @Override
-    public String toString() {
-        return "RespostaPagamentoDTO [idPagamento=" + idPagamento + ", cartao=" + cartao + "]";
+    public void setTransacaoRespostaDTO(TransacaoRespostaDTO transacaoResposta) {
+        this.transacaoRespostaDTO = transacaoRespostaDTO;
     }
 }

@@ -1,5 +1,4 @@
 package com.tools.crm.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,15 +11,15 @@ import javax.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransacaoDTO {
-
+public class TransacaoEstornoDTO {
+    @NotNull
     private Long idPagamento;
     @NotEmpty
     private String cartao;
     @NotNull
-    private DescTransacaoDTO descricao;
+    private DescTransacaoRepostaDTO descricao;
     @NotNull
-    private FormaPagamentoDTO formaPagamento;
+    private  FormaPagamentoDTO formaPagamento;
 
     public FormaPagamentoDTO getFormaPagamento() {
         return formaPagamento;
@@ -32,5 +31,5 @@ public class TransacaoDTO {
 
     @Override
     public String toString() {
-        return "transacaoDTO [cartao=" + cartao + ", id=" + idPagamento + ", descricao=" + descricao +  ", formaPagamento= " + formaPagamento +"]";}
+        return "estornoDTO [cartao=" + cartao + ", id=" + idPagamento + ", descricao=" + descricao +  ", formaPagamento= " + formaPagamento +"]";}
 }
