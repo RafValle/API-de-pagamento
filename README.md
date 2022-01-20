@@ -25,8 +25,8 @@ O projeto está divido nas seguintes camadas:
 
 ## Como executar
 1. Clonar o projeto
-2. Executar no terminal o comando: ``mvn spring-boot:run``
-3. Acessar no mavegador http://localhost:8080/swagger-ui.html#/
+2. Executar o projeto em uma IDEA``
+3. Acessar no navegador http://localhost:8080/swagger-ui.html#/
 
 ## Como testar
 O sistema possui dois endpoint:
@@ -44,7 +44,6 @@ O sistema possui dois endpoint:
       "parcelas": 1,
       "tipo": "AVISTA"
     },
-    "idPagamento": 100
   }
 }
 ```
@@ -53,7 +52,7 @@ O sistema possui dois endpoint:
 ```javascript
 {
     "transacaoRespostaDTO": {
-        "idPagamento": 100,
+        "id": 1,
             "cartao": "*************1234",
             "descricao": {
             "valor": 500.5,
@@ -77,7 +76,7 @@ O sistema possui dois endpoint:
 ```javascript
 {
   "transacaoRespostaDTO": {
-    "idPagamento": 100,
+    "id": 1,
     "cartao": "*************1234",
     "descricao": {
       "valor": 500.5,
@@ -95,5 +94,5 @@ O sistema possui dois endpoint:
 }
 ```
 
-3**``GET /consultaId``**: Requisita os dados do pagamento do id
-4**``GET /consultaProduto``**: Requisita os dados de todos os pagamentos 
+3**``GET /consultaPagamentoId``**: Requisita os dados do pagamento do id
+4**``GET /consultaPagamento``**: Requisita os dados de todos os pagamentos 
