@@ -25,8 +25,8 @@ O projeto está divido nas seguintes camadas:
 
 ## Como executar
 1. Clonar o projeto
-2. Executar no terminal o comando: ``mvn spring-boot:run``
-3. Acessar no mavegador http://localhost:8080/swagger-ui.html#/
+2. Executar o projeto em uma IDEA``
+3. Acessar no navegador http://localhost:8080/swagger-ui.html#/
 
 ## Como testar
 O sistema possui dois endpoint:
