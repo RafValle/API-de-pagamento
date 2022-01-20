@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class TransacaoRespostaDTO {
     @NotNull
-    private Long idPagamento;
+    private Long id;
     @NotEmpty
     private String cartao;
     @NotNull
@@ -32,5 +32,5 @@ public class TransacaoRespostaDTO {
 
     @Override
     public String toString() {
-        return "transacaoDTO [cartao=" + cartao + ", id=" + idPagamento + ", descricao=" + descricao +  ", formaPagamento= " + formaPagamento +"]";}
+        return "transacaoDTO [cartao=" + cartao + ", id=" + id + ", descricao=" + descricao +  ", formaPagamento= " + formaPagamento +"]";}
 }

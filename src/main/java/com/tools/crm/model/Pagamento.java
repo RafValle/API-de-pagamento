@@ -17,7 +17,7 @@ public class Pagamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Long idPagamento;
+//	private Long idPagamento;
 	private String cartao;
 	private Double valor;
 	private LocalDate dateTime;
@@ -30,10 +30,10 @@ public class Pagamento {
 	private FormaPagamento tipo;
 	private Long parcelas;
 
-	public Pagamento(Long idPagamento, String cartao, Double valor, LocalDate dateTime,
+	public Pagamento(String cartao, Double valor, LocalDate dateTime,
 					 String estabelecimento, Integer nsu, Integer condigoAutorizacao, Status status,FormaPagamento tipo, Long parcelas){
 		super();
-		this.idPagamento = idPagamento;
+//		this.idPagamento = idPagamento;
 		this.cartao = cartao;
 		this.valor = valor;
 		this.dateTime = dateTime;
@@ -47,7 +47,7 @@ public class Pagamento {
 
 	@Override
 	public String toString() {
-		return "Pagamento [id=" + id + ",idPagamento=" + idPagamento + ", cartao=" + cartao + ", valor=" + valor
+		return "Pagamento [id=" + id + ", cartao=" + cartao + ", valor=" + valor
 				+ ", estabelecimento=" + estabelecimento + ", nsu=" + nsu + ", condigoAutorizacao=" + condigoAutorizacao + ", status=" + status
 				+ ", tipo=" + tipo + ", parcelas=" + parcelas + "]";
 	}

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 public class RequisicaoConverter {
     public Pagamento convertToRequisicaoPagamento(RequisicaoPagamentoDTO requisicaoPagamentoDTO) {
         return Pagamento.builder()
-                .idPagamento(requisicaoPagamentoDTO.getTransacao().getIdPagamento())
                 .cartao(requisicaoPagamentoDTO.getTransacao().getCartao())
                 .valor(requisicaoPagamentoDTO.getTransacao().getDescricao().getValor())
                 .dateTime(requisicaoPagamentoDTO.getTransacao().getDescricao().getDataHora())
@@ -35,7 +34,7 @@ public class RequisicaoConverter {
                 .status(pagamento.getStatus())
                 .build();
         TransacaoRespostaDTO transacaoRespostaDTOrespostaDTO = TransacaoRespostaDTO.builder()
-                .idPagamento(pagamento.getIdPagamento())
+                .id(pagamento.getId())
                 .cartao(pagamento.getCartao())
                 .descricao(descTransacaoRepostaDTO)
                 .formaPagamento(formaPagamentoDTO)
